@@ -1,0 +1,25 @@
+Projekt zawiera 3 przyklady z prezentacji "Zdarzenia rzadza swiatem - jak sobie z nimi radzic" 
+z konferencji Confitura 2011.
+
+Przyklady podzielone sa na pakiety:
+- pl.jaceklis.esper.cep1
+- pl.jaceklis.esper.cep2
+- pl.jaceklis.esper.cep3
+
+Kazdy pakiet zawiera 3 pliki:
+- Loader - uruchamiajacy przyklad
+- EventCreator - uruchamiany w osobnym watku generator zdarzen
+- EventListener - listener uruchamiany w momencie wykrycia poszukiwanej reguly (opisanej zapytaniem EPL)
+
+pl.jaceklis.esper.cep1 - przyklad obliczania sredniej ceny zamowienia dla konkretnego produktu (BOOK lub CAR) 
+w ciagu 10 sekund
+
+pl.jaceklis.esper.cep2 - przyklad zaklada zamowienie produktu (OrderEvent), a nastepnie wykonanie telefonu do CallCenter
+w celu aktywacji produktu. Regula wyszukuje brak polaczenia telefonicznego (zdarzenia CallEvent) skorelowanego z OrderEvent
+w ciagu 1 minuty. Analizie podlegaja zdarzenia z ostatniej godziny.
+
+pl.jaceklis.esper.cep3 - przyklad wyszukuje podejrzane wyplaty z bankomatu w strumieniu zdarzen wyplat (WithdrawalEvent).
+Bankomaty znajduja sie w strefach (areaId), ktore posiadaja unikalne id. 
+Wyplata podejrzana to wyplada wykonana z tego samego konta, wieksza niz 60000 i wykonana na w ciagu 15 sekund na obszarach oddalonych
+od siebie o 3 jednoski (wartosc bezwzgledna). Funkcja abs uzyta w przykladzie jest przykladem rozszerzenia silnika Esper o wlasne 
+funkcje (konfiguracja w pliku esper-config.xml
